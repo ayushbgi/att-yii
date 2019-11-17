@@ -27,29 +27,6 @@ AppAsset::register($this);
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
-
-     <script>
-
-    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        var element = document.getElementById('text');
-        if (isMobile==true) {
-            if ('serviceWorker' in navigator) {
-        window.addEventListener('load', ()=> {
-            navigator
-            .serviceWorker
-            .register('my.js')
-            .then(()=>console.log("Ready."))
-            .catch(()=>console.log("Err..."));
-        });
-    }
-        } else {
-            //for desktop
-        }
-
-
-   
-</script>
-
 <?php $this->beginBody() ?>
 
 <div class="wrap">
