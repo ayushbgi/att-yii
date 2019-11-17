@@ -64,6 +64,10 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    public function actionHome()
+    {
+        return $this->render('home');
+    }
     /**
      * Login action.
      *
@@ -74,11 +78,15 @@ class SiteController extends Controller
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
-
+/*
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         }
+*/      $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+        return $this->render('home');
+}
 
         $model->password = '';
         return $this->render('login', [

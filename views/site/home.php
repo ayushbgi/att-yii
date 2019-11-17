@@ -8,7 +8,7 @@ $this->title = 'My Yii Application';
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Welcome Back ,<?= Yii::$app->user->identity->username ?>!</h1>
+        <h1>Welcome back, <?= ucfirst(Yii::$app->user->identity->username) ?>!</h1>
 
 
         <p class="lead">This is Yii-powered application.</p>

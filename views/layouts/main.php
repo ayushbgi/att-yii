@@ -43,7 +43,7 @@ AppAsset::register($this);
         'items' => [
           Yii::$app->user->isGuest ? (
               ['label' => 'Home', 'url' => ['/site/index']]
-          ) : (['label' => 'Home', 'url' => ['/site/home']]
+          ) : (['label' => 'My', 'url' => ['/site/home']]
           )
             ,
             ['label' => 'About', 'url' => ['/site/about']],
