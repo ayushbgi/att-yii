@@ -68,6 +68,12 @@ class SiteController extends Controller
     {
         return $this->render('home');
     }
+
+
+    public function actionStatus()
+    {
+        return $this->render('status');
+    }
     /**
      * Login action.
      *
