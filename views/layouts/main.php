@@ -46,6 +46,8 @@ AppAsset::register($this);
           ) : (['label' => 'My', 'url' => ['/site/home']]
           )
             ,
+
+
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
@@ -54,7 +56,7 @@ AppAsset::register($this);
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
+                    'Logout (' . ucfirst(Yii::$app->user->identity->username) . ')',
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()
