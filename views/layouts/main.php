@@ -51,9 +51,12 @@ AppAsset::register($this);
             ) : (['label' => 'Status', 'url' => ['/site/status']]
             )
               ,
+              Yii::$app->user->isGuest ? (
+                  ['label' => 'Contact', 'url' => ['/site/contact']]
+              ) : (['label' => 'Leave', 'url' => ['/site/leave']]
+              )
+                ,
 
-
-            ['label' => 'Contact', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (

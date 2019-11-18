@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\LeaveForm;
 
 class SiteController extends Controller
 {
@@ -74,6 +75,8 @@ class SiteController extends Controller
     {
         return $this->render('status');
     }
+
+    
     /**
      * Login action.
      *
@@ -129,7 +132,24 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+    /**
+     * Displays contact page.
+     *
+     * @return Response|string
+     */
 
+    public function actionLeave()
+    {
+        $model = new LeaveForm();
+        if ($model->load(Yii::$app->request->post()) && $model->leave(Yii::$app->params['adminEmail'])) {
+            Yii::$app->session->setFlash('leaveFormSubmitted');
+
+            return $this->refresh();
+        }
+        return $this->render('leave', [
+            'model' => $model,
+        ]);
+    }
     /**
      * Displays about page.
      *
