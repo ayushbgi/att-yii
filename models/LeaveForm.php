@@ -14,7 +14,7 @@ class LeaveForm extends Model
     public $email;
     public $subject;
     public $body;
-  
+
 
 
     /**
@@ -24,7 +24,7 @@ class LeaveForm extends Model
     {
         return [
             // name, email, subject and body are required
-            [['name', 'email', 'subject', 'body'], 'required'],
+            [[ 'email', 'subject', 'body'], 'required'],
             // email has to be a valid email address
             ['email', 'email'],
 
@@ -45,7 +45,7 @@ class LeaveForm extends Model
         if ($this->validate()) {
             Yii::$app->mailer->compose()
                 ->setTo($email)
-                ->setFrom([Yii::$app->params['senderEmail'] => Yii::$app->params['senderName']])
+                ->setFrom([Yii::$app->params['senderEmail'] => ucfirst(Yii::$app->user->identity->username)])
                 ->setReplyTo([$this->email => $this->name])
                 ->setSubject($this->subject)
                 ->setTextBody($this->body)

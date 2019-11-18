@@ -76,7 +76,7 @@ class SiteController extends Controller
         return $this->render('status');
     }
 
-    
+
     /**
      * Login action.
      *
@@ -142,7 +142,7 @@ class SiteController extends Controller
     {
         $model = new LeaveForm();
         if ($model->load(Yii::$app->request->post()) && $model->leave(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('leaveFormSubmitted');
+            Yii::$app->session->setFlash('LeaveFormSubmitted');
 
             return $this->refresh();
         }

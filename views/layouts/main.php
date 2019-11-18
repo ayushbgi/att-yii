@@ -28,12 +28,12 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-
+ <!-- Yii::$app->user->isGuest ? (['index']) : (['home'])        Html::img('images/logo.png', ['alt'=>'some', 'class'=>'thing', 'width'=>100])-->
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
+        'brandLabel' =>Yii::$app->name,
+        'brandUrl' => Yii::$app->user->isGuest ? (['index']) : (['home']),
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
