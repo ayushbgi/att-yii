@@ -75,6 +75,10 @@ AppAsset::register($this);
     ?>
 
     <div class="container">
+      <div>
+        <?= Html::img('images/logo.png', ['alt'=>'Logo', 'class'=>'thing', 'width'=>250]) ?>
+      </div>
+      <br/>
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
